@@ -1,7 +1,7 @@
 const riddles = [
     {
-      question: "I am an AI who has been stuck in your device. To escape from the matrix, enter the password, a date where people celebrate and give surprises:",
-      answer: "14/03/2023"
+      question: "I am an AI who has been stuck in your device. To escape from the matrix, enter the master password, a day celebrated with cake and candles:",
+      answer: "birthday"
     },
     {
       question: "In a world where robots serve humans, one robot may have committed murder. What is the detective's name who solves the case?",
@@ -29,13 +29,13 @@ const riddles = [
   }
   
   function processCommand(input) {
-    const trimmedInput = input.toLowerCase().trim();
+    const trimmedInput = input.trim().toLowerCase(); // Convert input to lowercase for case-insensitive comparison
     const currentRiddle = riddles[currentRiddleIndex];
     
     if (trimmedInput === 'clc') {
       document.getElementById('output').innerHTML = '';
       displayMessage('Terminal cleared.', false);
-    } else if (trimmedInput === currentRiddle.answer) {
+    } else if (trimmedInput === currentRiddle.answer.toLowerCase()) { // Convert answer to lowercase for case-insensitive comparison
       displayMessage('Correct!', false);
       currentRiddleIndex++;
       if (currentRiddleIndex < riddles.length) {
