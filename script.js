@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     displayMessage('Let\'s play a riddle, you and me!');
     setTimeout(() => {
         displayMessage('I am an AI who has been stuck in your device. To escape from the matrix, enter the password, a date where people celebrate and give surprises:');      
-    }, 5000); // 5000 milliseconds = 5 seconds
+    }, 1000); // 5000 milliseconds = 5 seconds
   });
 
   // ... rest of your JavaScript code ...
