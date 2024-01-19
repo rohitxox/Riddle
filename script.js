@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', (event) => {
     displayMessage('Hey! I am Rohit. Let\'s play a riddle, you and me!');
-    displayMessage('\n');
-    displayMessage('I am an AI who has been stuck in your device. To escape from the matrix, enter the password, a date where people celebrate and give surprises:');
+    displayMessage('\n I am an AI who has been stuck in your device. To escape from the matrix, enter the password, a date where people celebrate and give surprises:');
   });
   
   function displayMessage(message, addPrompt = true) {
