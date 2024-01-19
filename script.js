@@ -1,6 +1,27 @@
+  const asciiArtBlackhole = `
+          .
+         ,O,
+        ,OOO,
+    'oooooOOOooooo'
+      \`OOOOOOO\`
+        \`OOO\`
+         \`O'
+`;
+
 document.addEventListener('DOMContentLoaded', (event) => {
-    displayMessage('Hey! I am Rohit. Let\'s play a riddle, you and me!');
-    
+  displayMessage(asciiArtBlackhole, false);
+  document.addEventListener('DOMContentLoaded', (event) => {
+    displayMessage(asciiArt, false);
+    displayMessage('Hey! I am Riddle. Let\'s solve a riddle. Some fun and horror theme.');
+    displayMessage('Enter "start" to begin the riddle, or "help" for more options.');
+  });
+});
+
+
+
+document.addEventListener('DOMContentLoaded', (event) => {
+    displayMessage('Let\'s play a riddle, you and me!');
+
     displayMessage('I am an AI who has been stuck in your device. To escape from the matrix, enter the password, a date where people celebrate and give surprises:');
   });
   
@@ -31,3 +52,4 @@ document.addEventListener('DOMContentLoaded', (event) => {
     }
   });
   
+
