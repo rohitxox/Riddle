@@ -1,26 +1,40 @@
+/* Base styles */
 body {
-    background-color: #0d0d0d;
-    color: #33ff33;
+    background-color: #1e1e1e; /* Dark background color */
+    color: #fff; /* White text color */
     font-family: 'Courier New', monospace;
     margin: 0;
-    overflow: hidden;
+    display: flex;
+    justify-content: center; /* Center children horizontally */
+    align-items: center; /* Center children vertically */
+    height: 100vh;
   }
   
+  /* Terminal styles */
+  #terminal {
+    width: 80%; /* Adjust width as needed */
+    max-width: 900px; /* Maximum width of the terminal */
+    background: #000; /* Background of the terminal */
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Optional: adds shadow around the terminal */
+    overflow-y: auto; /* Allows scrolling */
+    text-align: center; /* Center text */
+  }
+  
+  /* Input styles */
   #input {
     width: 100%;
-    background-color: #0d0d0d;
+    background-color: transparent;
     border: none;
-    color: #33ff33;
-    font-family: 'Courier New', monospace;
+    color: #fff;
     padding: 0;
-    border: none;
+    margin-top: 10px;
     outline: none;
   }
   
+  /* Output styles */
   #output {
     white-space: pre-wrap;
   }
-  
-  /* Additional styles for ASCII art and command output could be added here */
-  
   
