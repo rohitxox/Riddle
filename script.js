@@ -1,34 +1,3 @@
-  const asciiArtBlackhole = `
-          .
-         ,O,
-        ,OOO,
-    'oooooOOOooooo'
-      \`OOOOOOO\`
-        \`OOO\`
-         \`O'
-`;
-
-document.addEventListener('DOMContentLoaded', (event) => {
-  displayMessage(asciiArtBlackhole, false);
-  document.addEventListener('DOMContentLoaded', (event) => {
-    displayMessage(asciiArt, false);
-    displayMessage('Hey! I am Riddle. Let\'s solve a riddle. Some fun and horror theme.');
-    displayMessage('Enter "start" to begin the riddle, or "help" for more options.');
-  });
-});
-
-
-// Adjust your JavaScript code to work with the prompt
-// For example, when displaying output, you might want to include the prompt as well
-function displayMessage(message) {
-    const terminalOutput = document.getElementById('output');
-    terminalOutput.innerHTML += `\n${message}`;
-    terminalOutput.scrollTop = terminalOutput.scrollHeight; // Scroll to bottom
-  }
-  
-  // Rest of your JavaScript...
-  
-
 document.addEventListener('DOMContentLoaded', (event) => {
     displayMessage('Let\'s play a riddle, you and me!');
 
