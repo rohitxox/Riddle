@@ -1,11 +1,8 @@
-  document.addEventListener('DOMContentLoaded', (event) => {
-    // This will wait for 5 seconds (5000 milliseconds) before displaying the message
-      displayMessage('Hey! I am Riddle. Let\'s solve a riddle. Some fun and horror theme.');
-      setTimeout(() => {
-      displayMessage('I am stuck in your device. To escape, enter the master password, a date where people celebrate and give surprises:');
-    }, 1000); // 1000 milliseconds = 1 seconds
-  });
-  
+document.addEventListener('DOMContentLoaded', (event) => {
+    displayMessage('Let\'s play a riddle, you and me!');
+    setTimeout(() => {
+    displayMessage('I am an AI who has been stuck in your device. To escape from the matrix, enter the password, a date where people celebrate and give surprises:');
+  }, 1000);
   // ... rest of your JavaScript code ...
   
 
