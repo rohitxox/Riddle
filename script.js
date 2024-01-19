@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
   }, 1000);
   // ... rest of your JavaScript code ...
   
-
   function displayMessage(message, addPrompt = true) {
     const terminalOutput = document.getElementById('output');
     terminalOutput.innerHTML += (addPrompt ? '\n> ' : '\n') + message;
