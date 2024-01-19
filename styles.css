@@ -6,13 +6,6 @@ body {
     overflow: hidden;
   }
   
-  #terminal {
-    border: solid 3px #33ff33;
-    padding: 10px;
-    height: 95vh;
-    overflow-y: auto;
-  }
-  
   #input {
     width: 100%;
     background-color: #0d0d0d;
