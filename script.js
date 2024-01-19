@@ -18,6 +18,16 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 
 
+// Adjust your JavaScript code to work with the prompt
+// For example, when displaying output, you might want to include the prompt as well
+function displayMessage(message) {
+    const terminalOutput = document.getElementById('output');
+    terminalOutput.innerHTML += `\n${message}`;
+    terminalOutput.scrollTop = terminalOutput.scrollHeight; // Scroll to bottom
+  }
+  
+  // Rest of your JavaScript...
+  
 
 document.addEventListener('DOMContentLoaded', (event) => {
     displayMessage('Let\'s play a riddle, you and me!');
