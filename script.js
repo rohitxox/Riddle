@@ -4,57 +4,57 @@ const riddles = [
       answer: "birthday"
     },
     {
-      question: "In a world where robots serve humans, one robot may have committed murder. What is the detective's name who solves the case?",
-      answer: "spooner" // The answer is Del Spooner, but we use a simplified version for the riddle.
-    },
-    {
       question: "A desert planet where spice is the most valuable resource, name this planet:",
       answer: "arrakis" // The answer is Arrakis, the desert planet in Dune.
+    },
+    {
+        question: "In a world where robots serve humans, one robot may have committed murder. What is the detective's name who solves the case?",
+        answer: "spooner" // The answer is Del Spooner, but we use a simplified version for the riddle.
     }
   ];
   
   let currentRiddleIndex = 0;
   
   document.addEventListener('DOMContentLoaded', (event) => {
-    displayMessage('Let\'s play a riddle, you and me!');
-    setTimeout(() => {
-      displayMessage(riddles[currentRiddleIndex].question);
-    }, 1000); // 1000 milliseconds = 1 second
+    displayMessage('Welcome to the Riddle Terminal. Type "start" to begin.', false);
   });
   
   function displayMessage(message, addPrompt = true) {
     const terminalOutput = document.getElementById('output');
-    terminalOutput.innerHTML += (addPrompt ? '\n> ' : '\n') + message;
+    if (addPrompt) {
+      message = `<span style="color: white;">[guest</span><span style="color: magenta;">@cveinnt.com</span><span style="color: white;">]$</span> ${message}`;
+    }
+    terminalOutput.innerHTML += `\n${message}`;
     terminalOutput.scrollTop = terminalOutput.scrollHeight; // Scroll to bottom
   }
   
+  
   function processCommand(input) {
     const trimmedInput = input.trim().toLowerCase(); // Convert input to lowercase for case-insensitive comparison
-    const currentRiddle = riddles[currentRiddleIndex];
-    
     if (trimmedInput === 'clc') {
       document.getElementById('output').innerHTML = '';
-      displayMessage('Terminal cleared.', false);
-    } else if (trimmedInput === currentRiddle.answer.toLowerCase()) { // Convert answer to lowercase for case-insensitive comparison
-      displayMessage('Correct!', false);
+    } else if (trimmedInput === 'start' && currentRiddleIndex === 0) {
+      displayMessage(riddles[currentRiddleIndex].question, false);
+    } else if (trimmedInput === riddles[currentRiddleIndex].answer.toLowerCase()) { // Convert answer to lowercase for case-insensitive comparison
+      displayMessage('Correct!', true);
       currentRiddleIndex++;
       if (currentRiddleIndex < riddles.length) {
-        displayMessage(riddles[currentRiddleIndex].question);
+        displayMessage(riddles[currentRiddleIndex].question, false);
       } else {
-        displayMessage('You have solved all riddles. Congratulations!', false);
+        displayMessage('You have solved all riddles. Congratulations!', true);
         // Reset the game or end it here
       }
     } else {
-      displayMessage('Incorrect. Try again.', false);
+      displayMessage('Incorrect. Try again.', true);
     }
   }
   
   const terminalInput = document.getElementById('input');
   terminalInput.addEventListener('keydown', function(event) {
     if (event.key === 'Enter') {
-      displayMessage(this.value, false); // Show the user input
-      processCommand(this.value);
+      const value = this.value;
+      displayMessage(value, true); // Show the user input with a colored prompt
+      processCommand(value);
       this.value = ''; // Clear input
     }
   });
-  
