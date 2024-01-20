@@ -16,45 +16,55 @@ const riddles = [
 let currentRiddleIndex = 0;
 
 document.addEventListener('DOMContentLoaded', () => {
-  const outputElement = document.getElementById('output');
-  // Display the welcome message
-  outputElement.textContent = 'Let\'s play a riddle, You and Me! Type "start" to begin.';
-  
   const inputElement = document.getElementById('input');
   inputElement.addEventListener('keydown', function(event) {
     if (event.key === 'Enter') {
-      const command = this.value.trim();
+      const command = this.value.trim().toLowerCase();
       this.value = ''; // Clear the input field
-      if (command.toLowerCase() === 'start') {
-        displayRiddle(outputElement);
+      appendToOutput(`guest@itsrohit.xo$ ${command}`);
+      if (command === 'start') {
+        displayRiddle();
+      } else if (command === 'clc') {
+        clearOutput();
       } else {
-        checkAnswer(command.toLowerCase(), outputElement);
+        checkAnswer(command);
       }
     }
   });
 });
 
-function displayRiddle(outputElement) {
-  // Clear previous output
+function appendToOutput(text) {
+  const outputElement = document.getElementById('output');
+  outputElement.innerHTML += `<div>${text}</div>`;
+  outputElement.scrollTop = outputElement.scrollHeight; // Scroll to the bottom of the output
+}
+
+function clearOutput() {
+  const outputElement = document.getElementById('output');
+  outputElement.innerHTML = '';
+}
+
+function displayRiddle() {
+  const outputElement = document.getElementById('output');
+  const currentRiddle = riddles[currentRiddleIndex];
   setTimeout(() => {
-    outputElement.textContent = riddles[currentRiddleIndex].question;
+    appendToOutput(currentRiddle.question);
   }, 1000); // Display after 1 second
 }
 
-function checkAnswer(answer, outputElement) {
-  if (answer === riddles[currentRiddleIndex].answer.toLowerCase()) {
+function checkAnswer(answer) {
+  const outputElement = document.getElementById('output');
+  const currentRiddle = riddles[currentRiddleIndex];
+  if (answer === currentRiddle.answer) {
     currentRiddleIndex++;
     if (currentRiddleIndex < riddles.length) {
-      outputElement.textContent = 'Correct! Here is the next riddle:';
-      setTimeout(() => {
-        outputElement.textContent = riddles[currentRiddleIndex].question;
-      }, 1000);
+      appendToOutput('Correct! Here is the next riddle:');
+      displayRiddle();
     } else {
-      outputElement.textContent = 'Correct! You have solved all the riddles. Congratulations!';
+      appendToOutput('Correct! You have solved all the riddles. Congratulations!');
       currentRiddleIndex = 0; // Reset if you want to start over
     }
   } else {
-    outputElement.textContent = 'Incorrect. Try again.';
+    appendToOutput('Incorrect. Try again.');
   }
 }
-
