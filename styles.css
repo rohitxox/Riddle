@@ -1,24 +1,21 @@
 body, html {
   height: 100%;
   margin: 0;
-  padding: 0;
   background-color: #000; /* Terminal black background */
   color: #fff; /* Light text */
-  font-family: 'Courier New', monospace; /* Monospace font for terminal feel */
+  font-family: 'Consolas', 'Courier New', monospace; /* Monospace font for terminal feel */
 }
 
 #terminal {
   padding: 20px;
   height: 100%;
   box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end; /* Align content to bottom */
 }
 
 #output {
-  flex-grow: 1;
+  white-space: pre-wrap; /* Preserve spaces and breaks */
   overflow-y: auto;
+  margin-bottom: 10px;
 }
 
 .input-line {
@@ -26,15 +23,30 @@ body, html {
 }
 
 .prompt {
-  white-space: nowrap;
+  user-select: none; /* Prevent user from selecting the prompt */
 }
 
 #input {
-  width: 100%;
+  flex-grow: 1;
   background: transparent;
   border: none;
-  outline: none;
   color: #fff;
-  font-family: 'Courier New', monospace;
+  font-family: 'Consolas', 'Courier New', monospace;
   font-size: 1em;
+  caret-color: #fff; /* Cursor color */
+}
+
+/* Hide the input field's caret when not focused */
+#input:not(:focus) {
+  color: transparent;
+  caret-color: transparent;
+}
+
+/* Optional: Add a blinking animation to the prompt to simulate a terminal cursor */
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+.prompt {
+  animation: blink 1s step-end infinite;
 }
