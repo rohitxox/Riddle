@@ -11,22 +11,29 @@ body, html {
 }
 
 #terminal {
-  width: 80%; /* Adjust the width of the terminal as needed */
-  max-width: 800px; /* Maximum width of the terminal */
-  padding: 20px;
-  box-sizing: border-box;
+  padding-top: 20px; /* Add top padding to push content down */
+  padding-left: 20px;
+  padding-right: 20px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Keeps content at the top */
+  align-items: flex-start; /* Aligns content to the left */
 }
+
 
 #output {
   white-space: pre-wrap; /* Preserve spaces and breaks */
   overflow-y: auto;
-  margin-bottom: 0.5em; /* Adjust space between output and input line */
+  margin-bottom: 1em; /* Adjust as needed for more space */
 }
 
 .input-line {
   display: flex;
   align-items: center;
   width: 100%;
+  border: none; /* This should remove the border */
+  outline: none;
 }
 
 .prompt {

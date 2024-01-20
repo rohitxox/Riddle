@@ -15,6 +15,12 @@ const riddles = [
 
 let currentRiddleIndex = 0;
 
+function displayRiddle() {
+  const riddle = riddles[currentRiddleIndex];
+  addOutputLine(`<strong>${riddle.question}</strong>`);
+}
+
+
 document.addEventListener('DOMContentLoaded', () => {
   const outputElement = document.getElementById('output');
   const inputElement = document.getElementById('input');
