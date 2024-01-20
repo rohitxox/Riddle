@@ -9,6 +9,7 @@ body, html {
   color: #fff; /* Light text */
   font-family: 'Courier New', monospace; /* Monospace font for terminal feel */
   overflow: hidden; /* Hide scrollbars */
+  border: none;
 }
 
 #terminal {
@@ -16,6 +17,7 @@ body, html {
   padding: 20px;
   display: flex;
   flex-direction: column; /* Stack output and input vertically */
+  border: none;
 }
 
 /* The rest of your CSS remains unchanged */
@@ -25,16 +27,19 @@ body, html {
   white-space: pre-wrap; /* Preserve spaces and breaks */
   overflow-y: auto;
   margin-bottom: 0.5em; /* Adjust space between output and input line */
+  border: none;
 
 }
 
 .input-line {
   display: flex;
   align-items: center;
+  border: none;
 }
 
 .prompt {
   user-select: none; /* Prevent user from selecting the prompt */
+  border: none;
 }
 
 #input {
