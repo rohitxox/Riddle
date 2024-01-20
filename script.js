@@ -97,7 +97,7 @@ function showSurprise() {
   const terminal = document.getElementById('terminal');
   terminal.innerHTML = ''; // Clear the terminal
   const img = document.createElement('img');
-  img.src = 'data\image.jpeg'; // Make sure to use the correct path to your image
+  img.src = 'data\image.jpg'; // Make sure to use the correct path to your image
   img.alt = 'Bachelor Degree Memories';
   img.style.maxWidth = '100%'; // Ensures the image fits within the terminal window
   img.style.borderRadius = '5px'; // Optional: if you want rounded corners
