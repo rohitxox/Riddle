@@ -102,7 +102,7 @@ function showSurprise() {
   const img = document.createElement('img');
   img.src = 'data/image.jpg'; // Assuming your image is in a folder named 'data'
   img.alt = 'Bachelor Degree Memories';
-  img.style.maxWidth = '100%'; // Ensures the image fits within the terminal element
+  img.style.maxWidth = '60%'; // Ensures the image fits within the terminal element
   img.style.borderRadius = '5px'; // Optional styling
 
   terminal.appendChild(img); // Add the image to the terminal
