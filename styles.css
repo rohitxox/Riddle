@@ -12,8 +12,6 @@ body, html {
 }
 
 #terminal {
-  width: 80%; /* Adjust the width of the terminal as needed */
-  max-width: 800px; /* Maximum width of the terminal */
   margin: auto; /* Center the terminal in the viewport */
   padding: 20px;
   display: flex;
@@ -33,7 +31,6 @@ body, html {
 .input-line {
   display: flex;
   align-items: center;
-  width: 100%;
 }
 
 .prompt {
