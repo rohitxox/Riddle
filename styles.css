@@ -19,11 +19,16 @@ body, html {
   box-sizing: border-box;
   text-align: left; /* Align terminal text to the left */
   line-height: 1.5em; /* Increase line spacing */
+  text-align: left;
+  font-family: 'Courier New', monospace;
+  color: white;
+  background-color: black;
 }
 
 #output {
   margin-bottom: 1em; /* Space before the input line */
   white-space: pre-wrap; /* Preserve white spaces and line breaks */
+  margin-bottom: 0.5em;
 }
 
 .prompt-line {
@@ -42,4 +47,13 @@ body, html {
   border: none;
   outline: none;
   line-height: 1.5em; /* Match line height with output */
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  flex-grow: 1; /* Take up remaining space */
+  margin-left: 0.5em;
 }
