@@ -22,7 +22,7 @@ const riddles = [
   function displayMessage(message, addPrompt = true) {
     const terminalOutput = document.getElementById('output');
     if (addPrompt) {
-      message = `<span style="color: white;">guest</span><span style="color: magenta;">@cveinnt.com</span><span style="color: white;">$</span> ${message}`;
+      message = `<span style="color: white;">guest</span><span style="color: magenta;">@itsrohit.xo</span><span style="color: white;">$</span> ${message}`;
     }
     terminalOutput.innerHTML += `\n<div class="terminal-line">${message}</div>`;
     terminalOutput.scrollTop = terminalOutput.scrollHeight; // Scroll to bottom
