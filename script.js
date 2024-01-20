@@ -5,11 +5,11 @@ const riddles = [
   },
   {
     question: "A desert planet where spice is the most valuable resource, name this planet:",
-    answer: "arrakis"
+    answer: "arrakis" // The answer is Arrakis, the desert planet in Dune.
   },
   {
     question: "In a world where robots serve humans, one robot may have committed murder. What is the detective's name who solves the case?",
-    answer: "spooner"
+    answer: "spooner" // The answer is Del Spooner, but we use a simplified version for the riddle.
   }
 ];
 
@@ -17,58 +17,31 @@ let currentRiddleIndex = 0;
 
 document.addEventListener('DOMContentLoaded', () => {
   const outputElement = document.getElementById('output');
+  outputElement.textContent = 'Let\'s play a riddle, You and Me! Type "start" to begin.';
+
   const inputElement = document.getElementById('input');
   inputElement.addEventListener('keydown', function(event) {
     if (event.key === 'Enter') {
       const command = this.value.trim().toLowerCase();
-      this.value = ''; // Clear the input
-      addCommandToOutput(command);
-      if (command === 'start') {
-        displayRiddle();
-      } else if (command === 'clc') {
-        clearOutput();
-      } else {
-        checkAnswer(command);
-      }
+      this.value = ''; // Clear the input field
+      executeCommand(command);
     }
   });
 });
 
-function addCommandToOutput(command) {
+function executeCommand(command) {
   const outputElement = document.getElementById('output');
-  const newCommand = document.createElement('div');
-  newCommand.textContent = `guest@itsrohit.xo$ ${command}`;
-  outputElement.appendChild(newCommand);
-}
-
-function displayRiddle() {
-  const outputElement = document.getElementById('output');
-  const riddleQuestion = document.createElement('div');
-  riddleQuestion.textContent = riddles[currentRiddleIndex].question;
-  outputElement.appendChild(riddleQuestion);
-}
-
-function checkAnswer(answer) {
-  const outputElement = document.getElementById('output');
-  const feedback = document.createElement('div');
-  if (answer === riddles[currentRiddleIndex].answer) {
-    feedback.textContent = 'Correct!';
-    outputElement.appendChild(feedback);
-    currentRiddleIndex++;
-    if (currentRiddleIndex < riddles.length) {
-      displayRiddle();
-    } else {
-      feedback.textContent = 'You have solved all the riddles. Congratulations!';
-      currentRiddleIndex = 0; // Reset or end game
-    }
+  outputElement.textContent += `\n${command}`;
+  if (command === 'clc') {
+    outputElement.textContent = '';
+  } else if (command === 'start') {
+    outputElement.textContent += `\n${riddles[0].question}`;
   } else {
-    feedback.textContent = 'Incorrect. Try again.';
-    outputElement.appendChild(feedback);
-    displayRiddle(); // Display the same riddle again
+    const currentRiddle = riddles.find(riddle => riddle.question === outputElement.textContent.split('\n').slice(-1)[0]);
+    if (currentRiddle && command === currentRiddle.answer) {
+      outputElement.textContent += `\nCorrect!`;
+    } else {
+      outputElement.textContent += `\nIncorrect. Try again.`;
+    }
   }
-}
-
-function clearOutput() {
-  const outputElement = document.getElementById('output');
-  outputElement.innerHTML = '';
 }

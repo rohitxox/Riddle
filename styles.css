@@ -2,38 +2,43 @@ body, html {
   height: 100%;
   margin: 0;
   padding: 0;
-  background-color: #000;
-  color: #fff;
-  font-family: 'Courier New', monospace;
+  background-color: #000; /* Terminal black background */
+  color: #fff; /* Light text */
+  font-family: 'Courier New', monospace; /* Monospace font for terminal feel */
 }
 
 #terminal {
-  padding: 10px;
+  width: 100%;
   height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start; /* Start content at the top */
+  align-items: flex-start; /* Align content to the left */
 }
 
 .input-line {
   display: flex;
+  width: 100%;
 }
 
 .prompt {
-  white-space: nowrap;
+  margin-right: 4px; /* Space between prompt and input */
 }
 
 #output {
+  width: 100%;
+  padding: 4px 0;
   overflow-y: auto;
-  margin-bottom: 10px;
-  height: 95%; /* Adjust based on your needs */
 }
 
 #input {
-  flex-grow: 1;
+  width: calc(100% - 80px); /* Subtract the width of the prompt */
   background: transparent;
   border: none;
   outline: none;
-  color: white;
-  margin-left: 5px;
+  color: #fff;
+  font-family: 'Courier New', monospace;
+  font-size: 1em;
 }
