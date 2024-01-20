@@ -77,34 +77,31 @@ function checkAnswer(answer) {
       displayRiddle();
     } else {
       addOutputLine('Congratulations, you have solved all the riddles!');
+      showSurprise(); // Call the showSurprise function here
     }
   } else {
     addOutputLine('Incorrect. Try again.');
   }
 }
 
+function showSurprise() {
+  // This function will be called after all riddles are correctly answered
+  const terminal = document.getElementById('terminal');
+  terminal.innerHTML = ''; // Clear the terminal
+  const img = document.createElement('img');
+  img.src = 'path_to_your_image.jpg'; // Make sure to use the correct path to your image
+  img.alt = 'Bachelor Degree Memories';
+  img.style.maxWidth = '100%'; // Ensures the image fits within the terminal window
+  img.style.borderRadius = '5px'; // Optional: if you want rounded corners
+  terminal.appendChild(img);
+}
+
+// ... Rest of your JavaScript code
+
+
+
 function resetGame() {
   currentRiddleIndex = 0;
   clearOutput();
   displayWelcomeMessage();
 }
-
-
-// ... (rest of your JavaScript code)
-
-function showSurprise() {
-  // This function will be called after all riddles are correctly answered
-  const terminal = document.getElementById('terminal');
-  const img = document.createElement('img');
-  img.src = '/1.jpeg'; // Change to the path of your image
-  img.alt = 'Bachelor Degree Memories';
-  img.style.maxWidth = '100%'; // Ensures the image fits in the terminal
-  img.style.borderRadius = '5px'; // Optional: if you want rounded corners
-
-  // Clear the terminal and append the image
-  terminal.innerHTML = '';
-  terminal.appendChild(img);
-}
-
-// Example usage: this line would be called after solving all riddles
-// showSurprise();
