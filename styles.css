@@ -1,70 +1,40 @@
+/* Base styles */
 body {
     background-color: #1e1e1e; /* Dark background color */
+    color: #fff; /* White text color */
+    font-family: 'Courier New', monospace;
     margin: 0;
-    padding: 0;
-    height: 100vh;
     display: flex;
     justify-content: center; /* Center children horizontally */
     align-items: center; /* Center children vertically */
-    color: white;
-    font-family: 'Courier New', monospace;
-    line-height: 1.5; /* Adjust line height for line spacing */
-    text-align: center;
+    height: 100vh;
   }
   
-  
+  /* Terminal styles */
   #terminal {
-    width: 90%; /* Increase the width of the terminal */
-    max-width: none; /* Remove any max-width if it was set */
-    margin: auto; /* Center the terminal */
-    padding: 20px; /* Add padding inside the terminal */
-    box-sizing: border-box; /* Include padding in the width calculation */
-    background: #000; /* Terminal background */
-    color: white; /* Terminal text color */
-    text-align: left; /* Align text to the left for indentation */
-    white-space: pre-line; /* Preserve line breaks and wrap text at whitespace */
+    width: 80%; /* Adjust width as needed */
+    max-width: 900px; /* Maximum width of the terminal */
+    background: #000; /* Background of the terminal */
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Optional: adds shadow around the terminal */
     overflow-y: auto; /* Allows scrolling */
-    /* ... other styles ... */
-  }
-
-  #input {
-    background-color: transparent; /* Ensures the input field has no background */
-    border: none; /* Removes the border */
-    outline: none; /* Removes the focus outline */
-    color: white; /* Sets the text color to white */
-    width: 100%; /* Makes the input field take up full width of its parent */
-    /* Additional styles to match your terminal */
-    margin: 0; /* Resets any default margin */
-    padding: 0.2em 0; /* Adds a little vertical padding for text inside the input */
-    font-family: 'Courier New', monospace; /* Matches the font with the rest of the terminal */
+    text-align: center; /* Center text */
   }
   
-  /* You might also want to style the input field to match the prompt text when focused */
-  #input:focus {
+  /* Input styles */
+  #input {
+    width: 100%;
     background-color: transparent;
     border: none;
+    color: #fff;
+    padding: 0;
+    margin-top: 10px;
     outline: none;
   }
   
-
-  
+  /* Output styles */
   #output {
-    margin-left: 1em; /* Adjust the indentation of the output text */
-    /* ... other styles ... */
-  }
-  
-  /* Add this class to your HTML prompt element */
-  .prompt {
-    padding-left: 1em; /* This will align your text input with the output text */
-  }
-  
-  @media only screen and (max-width: 600px) {
-    #terminal {
-      width: 95%; /* Adjust the terminal width on smaller screens */
-      padding: 10px; /* Adjust padding on smaller screens */
-    }
-    .prompt, #output {
-      margin-left: 0.5em; /* Less indentation on smaller screens */
-    }
+    white-space: pre-wrap;
   }
   

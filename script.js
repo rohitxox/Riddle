@@ -21,16 +21,15 @@ const riddles = [
   
   // ... rest of your JavaScript code ...
 
-function displayMessage(message, addPrompt = true) {
+  function displayMessage(message, addPrompt = true) {
     const terminalOutput = document.getElementById('output');
-    // Wrap the prompt in a span for styling
     if (addPrompt) {
-      message = `<span class="prompt">guest@itsrohit.xo$</span> ${message}`;
+      message = `<span style="color: white;">guest</span><span style="color: magenta;">@itsrohit.xo</span><span style="color: white;">$</span> ${message}`;
     }
-    // Add the message as a new div to preserve individual line styling
-    terminalOutput.innerHTML += `<div>${message}</div>`;
+    terminalOutput.innerHTML += `\n<div class="terminal-line">${message}</div>`;
     terminalOutput.scrollTop = terminalOutput.scrollHeight; // Scroll to bottom
   }
+  
   
   // ... rest of your JavaScript code ...
   
