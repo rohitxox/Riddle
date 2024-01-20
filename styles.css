@@ -4,16 +4,16 @@ body {
     padding: 0;
     height: 100vh;
     display: flex;
-    flex-direction: column; /* Stack children vertically */
-    align-items: center; /* Center children horizontally */
-    justify-content: flex-start; /* Align children to the top */
+    justify-content: center; /* Center children horizontally */
+    align-items: center; /* Center children vertically */
     color: white;
     font-family: 'Courier New', monospace;
+    text-align: center;
   }
   
   #terminal {
     width: 80%; /* Adjust width as needed */
-    max-width: 900px; /* Maximum width of the terminal */
+    max-width: 600px; /* Maximum width of the terminal */
     background: #000; /* Background of the terminal */
     padding: 20px;
     box-sizing: border-box;
@@ -35,12 +35,10 @@ body {
     /* Add more styles if needed */
   }
   
-  /* You might want to add custom styles for your ASCII art */
-  .ascii-art {
-    text-align: left; /* or 'center' depending on how you want to display it */
-    white-space: pre; /* Maintains whitespace formatting */
-    font-family: 'Courier New', monospace; /* Monospace font for ASCII art */
-    margin: 0; /* Remove margin */
-    color: #808080; /* Grey color for the ASCII art, adjust as needed */
+  @media only screen and (max-width: 600px) {
+    #terminal {
+      width: 95%; /* Make the terminal wider on smaller screens */
+      padding: 10px; /* Reduce padding on smaller screens */
+    }
   }
   
