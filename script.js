@@ -17,31 +17,59 @@ let currentRiddleIndex = 0;
 
 document.addEventListener('DOMContentLoaded', () => {
   const outputElement = document.getElementById('output');
-  outputElement.textContent = 'Let\'s play a riddle, You and Me! Type "start" to begin.';
+  appendLineToOutput('Let\'s play a riddle, You and Me! Type "start" to begin.');
 
   const inputElement = document.getElementById('input');
   inputElement.addEventListener('keydown', function(event) {
     if (event.key === 'Enter') {
       const command = this.value.trim().toLowerCase();
       this.value = ''; // Clear the input field
-      executeCommand(command);
+      appendLineToOutput(`guest@itsrohit.xo$ ${command}`);
+      handleCommand(command);
     }
   });
 });
 
-function executeCommand(command) {
+function appendLineToOutput(line) {
   const outputElement = document.getElementById('output');
-  outputElement.textContent += `\n${command}`;
+  const newLine = document.createElement('div');
+  newLine.textContent = line;
+  outputElement.appendChild(newLine);
+  outputElement.scrollTop = outputElement.scrollHeight; // Scroll to the bottom
+}
+
+function handleCommand(command) {
   if (command === 'clc') {
-    outputElement.textContent = '';
+    clearOutput();
   } else if (command === 'start') {
-    outputElement.textContent += `\n${riddles[0].question}`;
+    displayRiddle();
   } else {
-    const currentRiddle = riddles.find(riddle => riddle.question === outputElement.textContent.split('\n').slice(-1)[0]);
-    if (currentRiddle && command === currentRiddle.answer) {
-      outputElement.textContent += `\nCorrect!`;
+    checkAnswer(command);
+  }
+}
+
+function clearOutput() {
+  const outputElement = document.getElementById('output');
+  outputElement.innerHTML = '';
+}
+
+function displayRiddle() {
+  const riddle = riddles[currentRiddleIndex];
+  appendLineToOutput(riddle.question);
+}
+
+function checkAnswer(answer) {
+  const riddle = riddles[currentRiddleIndex];
+  if (answer === riddle.answer) {
+    currentRiddleIndex++;
+    appendLineToOutput('Correct!');
+    if (currentRiddleIndex < riddles.length) {
+      displayRiddle();
     } else {
-      outputElement.textContent += `\nIncorrect. Try again.`;
+      appendLineToOutput('You have solved all the riddles. Congratulations!');
+      currentRiddleIndex = 0; // Reset or end game
     }
+  } else {
+    appendLineToOutput('Incorrect. Try again.');
   }
 }

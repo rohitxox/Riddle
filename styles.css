@@ -42,3 +42,7 @@ body, html {
   font-family: 'Courier New', monospace;
   font-size: 1em;
 }
+#output div {
+  margin: 0;
+  padding: 0;
+}
