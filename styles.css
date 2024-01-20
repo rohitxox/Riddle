@@ -2,16 +2,27 @@ body, html {
   height: 100%;
   margin: 0;
   padding: 0;
+  display: flex; /* Use flexbox to center content */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
   background-color: #000; /* Terminal black background */
   color: #fff; /* Light text */
   font-family: 'Courier New', monospace; /* Monospace font for terminal feel */
+  overflow: hidden; /* Hide scrollbars */
 }
 
 #terminal {
+  width: 80%; /* Adjust the width of the terminal as needed */
+  max-width: 800px; /* Maximum width of the terminal */
+  margin: auto; /* Center the terminal in the viewport */
   padding: 20px;
-  height: 100%;
-
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column; /* Stack output and input vertically */
 }
+
+/* The rest of your CSS remains unchanged */
+
 
 #output {
   white-space: pre-wrap; /* Preserve spaces and breaks */

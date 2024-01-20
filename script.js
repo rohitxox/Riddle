@@ -88,3 +88,23 @@ function resetGame() {
   clearOutput();
   displayWelcomeMessage();
 }
+
+
+// ... (rest of your JavaScript code)
+
+function showSurprise() {
+  // This function will be called after all riddles are correctly answered
+  const terminal = document.getElementById('terminal');
+  const img = document.createElement('img');
+  img.src = '/1.jpeg'; // Change to the path of your image
+  img.alt = 'Bachelor Degree Memories';
+  img.style.maxWidth = '100%'; // Ensures the image fits in the terminal
+  img.style.borderRadius = '5px'; // Optional: if you want rounded corners
+
+  // Clear the terminal and append the image
+  terminal.innerHTML = '';
+  terminal.appendChild(img);
+}
+
+// Example usage: this line would be called after solving all riddles
+// showSurprise();
