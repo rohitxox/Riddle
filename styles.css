@@ -63,14 +63,16 @@ body, html {
 
 .loading-bar-container {
   width: 100%;
-  background-color: #ccc;
+  background-color: #555;
   margin: 10px 0;
+  border-radius: 3px;
 }
 
 .loading-bar {
   width: 0;
-  height: 30px;
-  background-color: #4CAF50;
+  height: 20px;
+  background-color:  #fff;
+  transition: width 0.5s; 
   text-align: center;
   line-height: 30px;
   color: white;
