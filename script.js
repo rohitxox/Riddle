@@ -15,10 +15,7 @@ const riddles = [
 
 let currentRiddleIndex = 0;
 
-function displayRiddle() {
-  const riddle = riddles[currentRiddleIndex];
-  addOutputLine(`<strong>${riddle.question}</strong>`);
-}
+
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -38,6 +35,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function displayWelcomeMessage() {
   addOutputLine('Let\'s play a riddle, You and Me! Type "start" to begin.');
+}
+
+function displayRiddle() {
+  const riddle = riddles[currentRiddleIndex];
+  addOutputLine(`<strong>${riddle.question}</strong>`);
 }
 
 function addOutputLine(message) {
