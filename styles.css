@@ -10,9 +10,10 @@ body, html {
 #terminal {
   padding: 20px;
   height: 100%;
-  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Align content to bottom */
 }
-
 #output {
   white-space: pre-wrap; /* Preserve spaces and breaks */
   overflow-y: auto;
@@ -27,11 +28,11 @@ body, html {
 }
 
 #input {
-  flex-grow: 1;
+  width: 100%;
   background: transparent;
   border: none;
+  outline: none;
   color: #fff;
   font-family: 'Courier New', monospace;
   font-size: 1em;
-  caret-color: #fff; /* Cursor color */
 }
