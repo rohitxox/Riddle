@@ -19,14 +19,20 @@ const riddles = [
     displayMessage('Let play a riddle, You and Me!. Type "start" to begin.', false);
   });
   
-  function displayMessage(message, addPrompt = true) {
+  // ... rest of your JavaScript code ...
+
+function displayMessage(message, addPrompt = true) {
     const terminalOutput = document.getElementById('output');
+    // Wrap the prompt in a span for styling
     if (addPrompt) {
-      message = `<span style="color: white;">guest</span><span style="color: magenta;">@itsrohit.xo</span><span style="color: white;">$</span> ${message}`;
+      message = `<span class="prompt">guest@itsrohit.xo$</span> ${message}`;
     }
-    terminalOutput.innerHTML += `\n<div class="terminal-line">${message}</div>`;
+    // Add the message as a new div to preserve individual line styling
+    terminalOutput.innerHTML += `<div>${message}</div>`;
     terminalOutput.scrollTop = terminalOutput.scrollHeight; // Scroll to bottom
   }
+  
+  // ... rest of your JavaScript code ...
   
   
   
