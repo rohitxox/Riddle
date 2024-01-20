@@ -23,12 +23,13 @@ body, html {
   font-family: 'Courier New', monospace;
   color: white;
   background-color: black;
+  margin-bottom: 0.5em
 }
 
 #output {
-  margin-bottom: 1em; /* Space before the input line */
+  /* Space before the input line */
   white-space: pre-wrap; /* Preserve white spaces and line breaks */
-  margin-bottom: 0.2em;
+
 }
 
 .prompt-line {
@@ -37,7 +38,7 @@ body, html {
 
 .prompt {
   white-space: nowrap; /* Keep the prompt in one line */
-  margin-right: 0.2em; /* Space between prompt and input */
+   /* Space between prompt and input */
 }
 
 #input {
@@ -55,5 +56,4 @@ body, html {
   outline: none;
   color: white;
   flex-grow: 1; /* Take up remaining space */
-  margin-left: 0.2em;
 }
