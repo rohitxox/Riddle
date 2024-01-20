@@ -1,40 +1,32 @@
-/* Base styles */
 body {
     background-color: #1e1e1e; /* Dark background color */
-    color: #fff; /* White text color */
-    font-family: 'Courier New', monospace;
     margin: 0;
-    display: flex;
-    justify-content: center; /* Center children horizontally */
-    align-items: center; /* Center children vertically */
-    height: 100vh;
-  }
-  
-  /* Terminal styles */
-  #terminal {
-    width: 80%; /* Adjust width as needed */
-    max-width: 900px; /* Maximum width of the terminal */
-    background: #000; /* Background of the terminal */
-    margin: 0 auto;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Optional: adds shadow around the terminal */
-    overflow-y: auto; /* Allows scrolling */
-    text-align: center; /* Center text */
-  }
-  
-  /* Input styles */
-  #input {
-    width: 100%;
-    background-color: transparent;
-    border: none;
-    color: #fff;
     padding: 0;
-    margin-top: 10px;
-    outline: none;
+    height: 100vh;
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center children horizontally */
+    justify-content: flex-start; /* Align children to the top */
+    color: white;
+    font-family: 'Courier New', monospace;
+    line-height: 1.5; /* Adjust line height for line spacing */
   }
   
-  /* Output styles */
+  
+  #terminal {
+    /* ... other styles ... */
+    text-align: left; /* Align text to the left for indentation */
+    white-space: pre-line; /* Collapses sequences of whitespace into a single whitespace */
+    padding: 20px; /* Adjust padding as needed for indentation */
+  }
+  
   #output {
-    white-space: pre-wrap;
+    margin-left: 2em; /* Indent the output text */
+    /* ... other styles ... */
+  }
+  
+  /* Style for the prompt to have a consistent indentation with the output */
+  .prompt {
+    margin-left: 2em;
   }
   
