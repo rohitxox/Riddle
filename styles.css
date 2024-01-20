@@ -2,54 +2,45 @@ body, html {
   height: 100%;
   margin: 0;
   padding: 0;
-  display: flex; /* Use flexbox to center content */
+  display: flex; /* Use flexbox to align children */
   justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
+  align-items: flex-start; /* Align items to the top */
   background-color: #000; /* Terminal black background */
   color: #fff; /* Light text */
   font-family: 'Courier New', monospace; /* Monospace font for terminal feel */
-  overflow: hidden; /* Hide scrollbars */
-  border: none;
 }
 
 #terminal {
-  margin: auto; /* Center the terminal in the viewport */
+  width: 80%; /* Adjust the width of the terminal as needed */
+  max-width: 800px; /* Maximum width of the terminal */
   padding: 20px;
-  display: flex;
-  flex-direction: column; /* Stack output and input vertically */
-  border: none;
+  box-sizing: border-box;
 }
-
-/* The rest of your CSS remains unchanged */
-
 
 #output {
   white-space: pre-wrap; /* Preserve spaces and breaks */
   overflow-y: auto;
   margin-bottom: 0.5em; /* Adjust space between output and input line */
-  border: none;
-
 }
 
 .input-line {
   display: flex;
   align-items: center;
-  border: none;
+  width: 100%;
 }
 
 .prompt {
   user-select: none; /* Prevent user from selecting the prompt */
-  border: none;
 }
 
 #input {
   flex-grow: 1;
   background: transparent;
   border: none;
+  outline: none; /* Removes the white border */
   color: #fff;
   font-family: 'Courier New', monospace;
   font-size: 1em;
   caret-color: #fff; /* Cursor color */
   margin-left: 0.5em; /* Space between prompt and input field */
-
 }
