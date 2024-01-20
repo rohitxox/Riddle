@@ -3,7 +3,7 @@ body, html {
   margin: 10;
   padding: 0;
   display: flex; /* Use flexbox to align children */
-  justify-content: center; /* Center horizontally */
+  justify-content: left; /* Center horizontally */
   align-items: flex-start; /* Align items to the top */
   background-color: #000; /* Terminal black background */
   color: #fff; /* Light text */
