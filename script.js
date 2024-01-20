@@ -1,6 +1,6 @@
 const riddles = [
   {
-    question: "I am an AI who has been stuck in your device. To escape from you, enter the password,  a date where people celebrate and give surprises!",
+    question: "I am an AI who has been stuck in your device. To escape from the matrix, enter the master password, a day celebrated with cake and candles:",
     answer: "birthday"
   },
   {
@@ -16,21 +16,17 @@ const riddles = [
 let currentRiddleIndex = 0;
 
 document.addEventListener('DOMContentLoaded', () => {
-  const inputElement = document.getElementById('input');
   const outputElement = document.getElementById('output');
-  // Initial welcome message
-  appendToOutput('Let\'s play a riddle, You and Me! Type "start" to begin.');
-
+  const inputElement = document.getElementById('input');
   inputElement.addEventListener('keydown', function(event) {
     if (event.key === 'Enter') {
       const command = this.value.trim().toLowerCase();
-      this.value = ''; // Clear the input field
-      appendToOutput(`guest@itsrohit.xo$ ${command}`);
-
+      this.value = ''; // Clear the input
+      addCommandToOutput(command);
       if (command === 'start') {
         displayRiddle();
       } else if (command === 'clc') {
-        outputElement.innerHTML = '';
+        clearOutput();
       } else {
         checkAnswer(command);
       }
@@ -38,29 +34,41 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-function appendToOutput(text) {
+function addCommandToOutput(command) {
   const outputElement = document.getElementById('output');
-  outputElement.innerHTML += `<div>${text}</div>`;
-  outputElement.scrollTop = outputElement.scrollHeight;
+  const newCommand = document.createElement('div');
+  newCommand.textContent = `guest@itsrohit.xo$ ${command}`;
+  outputElement.appendChild(newCommand);
 }
 
 function displayRiddle() {
-  const currentRiddle = riddles[currentRiddleIndex];
-  appendToOutput(currentRiddle.question);
+  const outputElement = document.getElementById('output');
+  const riddleQuestion = document.createElement('div');
+  riddleQuestion.textContent = riddles[currentRiddleIndex].question;
+  outputElement.appendChild(riddleQuestion);
 }
 
 function checkAnswer(answer) {
-  const currentRiddle = riddles[currentRiddleIndex];
-  if (answer === currentRiddle.answer) {
+  const outputElement = document.getElementById('output');
+  const feedback = document.createElement('div');
+  if (answer === riddles[currentRiddleIndex].answer) {
+    feedback.textContent = 'Correct!';
+    outputElement.appendChild(feedback);
     currentRiddleIndex++;
     if (currentRiddleIndex < riddles.length) {
-      appendToOutput('Correct! Here is the next riddle:');
       displayRiddle();
     } else {
-      appendToOutput('Correct! You have solved all the riddles. Congratulations!');
-      currentRiddleIndex = 0; // Reset to start again or end game
+      feedback.textContent = 'You have solved all the riddles. Congratulations!';
+      currentRiddleIndex = 0; // Reset or end game
     }
   } else {
-    appendToOutput('Incorrect. Try again.');
+    feedback.textContent = 'Incorrect. Try again.';
+    outputElement.appendChild(feedback);
+    displayRiddle(); // Display the same riddle again
   }
+}
+
+function clearOutput() {
+  const outputElement = document.getElementById('output');
+  outputElement.innerHTML = '';
 }
