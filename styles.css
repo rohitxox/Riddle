@@ -2,41 +2,44 @@ body, html {
   height: 100%;
   margin: 0;
   padding: 0;
-  background-color: #000; /* Terminal black background */
-  color: #fff; /* Light text */
-  font-family: 'Courier New', monospace; /* Monospace font for terminal feel */
+  background-color: #000;
+  color: #fff;
+  font-family: 'Courier New', monospace;
+  display: flex;
+  align-items: center; /* Vertically center */
+  justify-content: center; /* Horizontally center */
+  text-align: center;
 }
 
 #terminal {
-  width: 100%;
-  height: 100%;
-  padding: 20px;
+  width: 95%; /* Use more of the viewport width */
+  max-width: 1200px; /* Set a reasonable max width */
+  margin: auto;
+  padding: 1em;
   box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start; /* Start content at the top */
-  align-items: flex-start; /* Align content to the left */
+  text-align: left; /* Align terminal text to the left */
+  line-height: 1.5em; /* Increase line spacing */
 }
 
-.input-line {
+#output {
+  margin-bottom: 1em; /* Space before the input line */
+  white-space: pre-wrap; /* Preserve white spaces and line breaks */
+}
+
+.prompt-line {
   display: flex;
-  width: 100%;
 }
 
 .prompt {
-  margin-right: 4px; /* Space between prompt and input */
+  white-space: nowrap; /* Keep the prompt in one line */
+  margin-right: 0.5em; /* Space between prompt and input */
 }
 
 #input {
-  width: calc(100% - 80px); /* Subtract the width of the prompt */
+  flex-grow: 1; /* Allow input to fill the rest of the line */
   background: transparent;
+  color: #fff;
   border: none;
   outline: none;
-  color: #fff;
-  font-family: 'Courier New', monospace;
-  font-size: 1em;
-}
-#output div {
-  margin: 0;
-  padding: 0;
+  line-height: 1.5em; /* Match line height with output */
 }
