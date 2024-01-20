@@ -1,6 +1,6 @@
 body, html {
   height: 100%;
-  margin: 0;
+  margin: 10;
   padding: 0;
   display: flex; /* Use flexbox to align children */
   justify-content: center; /* Center horizontally */
