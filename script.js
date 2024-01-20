@@ -64,7 +64,7 @@ function clearOutput() {
 function displayRiddle() {
   const riddle = riddles[currentRiddleIndex];
   // Here we are using innerHTML to parse the HTML tags
-  addOutputLine(`<strong>${riddle.question}</strong><br>`); // Adding a break (<br>) for spacing
+  addOutputLine(riddle.question); // Adding a break (<br>) for spacing
 }
 
 function addOutputLine(message) {
