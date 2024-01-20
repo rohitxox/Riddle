@@ -37,7 +37,7 @@ function displayWelcomeMessage() {
 
 function displayRiddle() {
   const riddle = riddles[currentRiddleIndex];
-  addOutputLine(riddle.question); // Removed the <strong> tag for bold
+  addOutputLine(riddle.question);
 }
 
 function processCommand(command) {
@@ -105,13 +105,13 @@ function showLoadingBar() {
   const interval = setInterval(() => {
     if (width >= 100) {
       clearInterval(interval);
-      loadingBar.textContent = "Loaded!"; // Add text to indicate loading is complete
       showSurprise(); // Show the surprise image after loading completes
     } else {
       width++;
       loadingBar.style.width = width + '%';
     }
   }, 20); // Adjust the interval as needed
+}
 
 function showSurprise() {
   // Get the terminal and output elements
