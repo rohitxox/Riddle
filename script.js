@@ -16,7 +16,7 @@ const riddles = [
   let currentRiddleIndex = 0;
   
   document.addEventListener('DOMContentLoaded', (event) => {
-    displayMessage('Welcome to the Riddle Terminal. Type "start" to begin.', false);
+    displayMessage('Let play a riddle, You and Me!. Type "start" to begin.', false);
   });
   
   function displayMessage(message, addPrompt = true) {
