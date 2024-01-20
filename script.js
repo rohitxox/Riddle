@@ -16,8 +16,6 @@ const riddles = [
 let currentRiddleIndex = 0;
 
 
-
-
 document.addEventListener('DOMContentLoaded', () => {
   const outputElement = document.getElementById('output');
   const inputElement = document.getElementById('input');
@@ -63,10 +61,6 @@ function clearOutput() {
   outputElement.innerHTML = '';
 }
 
-
-//
-// ... (rest of your JavaScript code)
-
 function displayRiddle() {
   const riddle = riddles[currentRiddleIndex];
   // Here we are using innerHTML to parse the HTML tags
@@ -76,15 +70,10 @@ function displayRiddle() {
 function addOutputLine(message) {
   const outputElement = document.getElementById('output');
   const newLine = document.createElement('div');
-  newLine.innerHTML = message; // Using innerHTML instead of textContent
+  newLine.innerHTML = message;
   outputElement.appendChild(newLine);
-  outputElement.scrollTop = outputElement.scrollHeight;
+  outputElement.scrollTop = outputElement.scrollHeight; // Scroll to bottom of output
 }
-
-// ... (rest of your JavaScript code)
-
-
-//
 
 function checkAnswer(answer) {
   const riddle = riddles[currentRiddleIndex];
@@ -95,11 +84,33 @@ function checkAnswer(answer) {
       displayRiddle();
     } else {
       addOutputLine('Congratulations, you have solved all the riddles!');
-      showSurprise(); // Call the showSurprise function here
+      addOutputLine('A surprise is loading for you...');
+      showLoadingBar(); // Call the showLoadingBar function here
     }
   } else {
     addOutputLine('Incorrect. Try again.');
   }
+}
+
+function showLoadingBar() {
+  const outputElement = document.getElementById('output');
+  const loadingBarContainer = document.createElement('div');
+  loadingBarContainer.className = 'loading-bar-container';
+  const loadingBar = document.createElement('div');
+  loadingBar.className = 'loading-bar';
+  loadingBarContainer.appendChild(loadingBar);
+  outputElement.appendChild(loadingBarContainer);
+
+  let width = 0;
+  const interval = setInterval(() => {
+    if (width >= 100) {
+      clearInterval(interval);
+      showSurprise(); // Show the surprise image after loading completes
+    } else {
+      width++;
+      loadingBar.style.width = width + '%';
+    }
+  }, 20); // Adjust the interval as needed
 }
 
 function showSurprise() {
@@ -117,12 +128,6 @@ function showSurprise() {
 
   terminal.appendChild(img); // Add the image to the terminal
 }
-
-// Make sure to call showSurprise() when you want to display the image, such as after solving all the riddles
-
-
-// ... Rest of your JavaScript code
-
 
 
 function resetGame() {
