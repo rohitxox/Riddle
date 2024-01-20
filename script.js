@@ -19,23 +19,22 @@ const riddles = [
     displayMessage('Let play a riddle, You and Me!. Type "start" to begin.', false);
   });
   
-// ... rest of your JavaScript code ...
+  // ... rest of your JavaScript code ...
 
-function processCommand(input) {
-    const trimmedInput = input.toLowerCase().trim();
-    if (trimmedInput === 'start') {
-      // Clear the terminal
-      document.getElementById('output').innerHTML = '';
-      // Set a timeout to display the riddle after 1 second
-      setTimeout(() => {
-        displayMessage(riddles[currentRiddleIndex].question, false);
-      }, 1000); // 1000 milliseconds = 1 second
+  function displayMessage(message, addPrompt = true) {
+    const terminalOutput = document.getElementById('output');
+    if (addPrompt) {
+      // Updated the prompt to the new username and hostname
+      message = `<span style="color: white;">~ guest</span><span style="color: magenta;">@itsrohit.xo</span><span style="color: white;">$</span> ${message}`;
     }
-    // ... handle other commands ...
+    // Each message is wrapped in a div that can be styled for centering
+    terminalOutput.innerHTML += `\n<div class="terminal-line">${message}</div>`;
+    terminalOutput.scrollTop = terminalOutput.scrollHeight; // Scroll to bottom
   }
   
-  // ... rest of your JavaScript code ...
   
+  
+  // ... rest of your JavaScript code ...
   
   
   
