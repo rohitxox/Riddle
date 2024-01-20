@@ -16,8 +16,11 @@ const riddles = [
 let currentRiddleIndex = 0;
 
 document.addEventListener('DOMContentLoaded', () => {
-  const inputElement = document.getElementById('input');
   const outputElement = document.getElementById('output');
+  // Display the welcome message
+  outputElement.textContent = 'Let\'s play a riddle, You and Me! Type "start" to begin.';
+  
+  const inputElement = document.getElementById('input');
   inputElement.addEventListener('keydown', function(event) {
     if (event.key === 'Enter') {
       const command = this.value.trim();
@@ -32,10 +35,10 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function displayRiddle(outputElement) {
-  outputElement.textContent = ''; // Clear previous output
+  // Clear previous output
   setTimeout(() => {
     outputElement.textContent = riddles[currentRiddleIndex].question;
-  }, 1000); // Display the current riddle after 1 second
+  }, 1000); // Display after 1 second
 }
 
 function checkAnswer(answer, outputElement) {
@@ -48,9 +51,10 @@ function checkAnswer(answer, outputElement) {
       }, 1000);
     } else {
       outputElement.textContent = 'Correct! You have solved all the riddles. Congratulations!';
-      currentRiddleIndex = 0; // Reset the riddle index if you want to restart the game
+      currentRiddleIndex = 0; // Reset if you want to start over
     }
   } else {
     outputElement.textContent = 'Incorrect. Try again.';
   }
 }
+
