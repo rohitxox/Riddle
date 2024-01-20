@@ -26,6 +26,27 @@ body {
     overflow-y: auto; /* Allows scrolling */
     /* ... other styles ... */
   }
+
+  #input {
+    background-color: transparent; /* Ensures the input field has no background */
+    border: none; /* Removes the border */
+    outline: none; /* Removes the focus outline */
+    color: white; /* Sets the text color to white */
+    width: 100%; /* Makes the input field take up full width of its parent */
+    /* Additional styles to match your terminal */
+    margin: 0; /* Resets any default margin */
+    padding: 0.2em 0; /* Adds a little vertical padding for text inside the input */
+    font-family: 'Courier New', monospace; /* Matches the font with the rest of the terminal */
+  }
+  
+  /* You might also want to style the input field to match the prompt text when focused */
+  #input:focus {
+    background-color: transparent;
+    border: none;
+    outline: none;
+  }
+  
+
   
   #output {
     margin-left: 1em; /* Adjust the indentation of the output text */
