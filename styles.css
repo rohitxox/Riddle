@@ -5,55 +5,45 @@ body, html {
   background-color: #000;
   color: #fff;
   font-family: 'Courier New', monospace;
-  display: flex;
-  align-items: center; /* Vertically center */
-  justify-content: center; /* Horizontally center */
-  text-align: center;
+  overflow: hidden;
 }
 
 #terminal {
-  width: 95%; /* Use more of the viewport width */
-  max-width: 1200px; /* Set a reasonable max width */
+  width: 95%;
+  max-width: 1200px;
+  height: 100%;
   margin: auto;
-  padding: 1em;
+  padding: 20px;
   box-sizing: border-box;
-  text-align: left; /* Align terminal text to the left */
-  line-height: 1.5em; /* Increase line spacing */
-  text-align: left;
-  font-family: 'Courier New', monospace;
-  color: white;
-  background-color: black;
-  margin-bottom: 0.5em
-}
-
-#output {
-  /* Space before the input line */
-  white-space: pre-wrap; /* Preserve white spaces and line breaks */
-
-}
-
-.prompt-line {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.input-line {
+  display: flex;
+  align-items: center;
 }
 
 .prompt {
-  white-space: nowrap; /* Keep the prompt in one line */
-   /* Space between prompt and input */
+  white-space: nowrap;
+}
+
+#output {
+  overflow-y: auto;
+  margin-bottom: 10px;
 }
 
 #input {
-  flex-grow: 1; /* Allow input to fill the rest of the line */
-  background: transparent;
-  color: #fff;
-  border: none;
-  outline: none;
-  line-height: 1.5em; /* Match line height with output */
-  display: flex;
-  align-items: center;
-  width: 100%;
   background: transparent;
   border: none;
   outline: none;
   color: white;
-  flex-grow: 1; /* Take up remaining space */
+  flex-grow: 1;
+  margin-left: 10px;
+}
+
+/* Make sure that the command history text and input prompt are aligned */
+#output div, .input-line {
+  text-align: left;
 }
