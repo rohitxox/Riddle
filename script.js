@@ -93,16 +93,23 @@ function checkAnswer(answer) {
 }
 
 function showSurprise() {
-  // This function will be called after all riddles are correctly answered
+  // Get the terminal and output elements
   const terminal = document.getElementById('terminal');
-  terminal.innerHTML = ''; // Clear the terminal
+  const outputElement = document.getElementById('output');
+
+  // Clear previous content and display the image
+  outputElement.innerHTML = ''; // Clear any text
   const img = document.createElement('img');
-  img.src = 'data\image.jpg'; // Make sure to use the correct path to your image
+  img.src = 'data/image.jpg'; // Assuming your image is in a folder named 'data'
   img.alt = 'Bachelor Degree Memories';
-  img.style.maxWidth = '100%'; // Ensures the image fits within the terminal window
-  img.style.borderRadius = '5px'; // Optional: if you want rounded corners
-  terminal.appendChild(img);
+  img.style.maxWidth = '100%'; // Ensures the image fits within the terminal element
+  img.style.borderRadius = '5px'; // Optional styling
+
+  terminal.appendChild(img); // Add the image to the terminal
 }
+
+// Make sure to call showSurprise() when you want to display the image, such as after solving all the riddles
+
 
 // ... Rest of your JavaScript code
 
