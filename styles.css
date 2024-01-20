@@ -38,6 +38,8 @@ body, html {
 
 .prompt {
   user-select: none; /* Prevent user from selecting the prompt */
+  display: block; /* Makes the element behave like a block, causing a line break after */
+
 }
 
 #input {
@@ -50,4 +52,10 @@ body, html {
   font-size: 1em;
   caret-color: #fff; /* Cursor color */
   margin-left: 0.5em; /* Space between prompt and input field */
+}
+
+
+.prompt-dollar-sign {
+  user-select: none; /* Prevent user from selecting the prompt */
+  margin-right: 0.5em; /* Space between the dollar sign and the input field */
 }
