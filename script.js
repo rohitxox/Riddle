@@ -1,69 +1,56 @@
 const riddles = [
-    {
-      question: "I am an AI who has been stuck in your device. To escape from the matrix, enter the master password, a day celebrated with cake and candles:",
-      answer: "birthday"
-    },
-    {
-      question: "A desert planet where spice is the most valuable resource, name this planet:",
-      answer: "arrakis" // The answer is Arrakis, the desert planet in Dune.
-    },
-    {
-        question: "In a world where robots serve humans, one robot may have committed murder. What is the detective's name who solves the case?",
-        answer: "spooner" // The answer is Del Spooner, but we use a simplified version for the riddle.
-    }
-  ];
-  
-  let currentRiddleIndex = 0;
-  
-  document.addEventListener('DOMContentLoaded', (event) => {
-    displayMessage('Let play a riddle, You and Me!. Type "start" to begin.', false);
-  });
-  
-  // ... rest of your JavaScript code ...
+  {
+    question: "I am an AI who has been stuck in your device. To escape from the matrix, enter the master password, a day celebrated with cake and candles:",
+    answer: "birthday"
+  },
+  {
+    question: "A desert planet where spice is the most valuable resource, name this planet:",
+    answer: "arrakis" // The answer is Arrakis, the desert planet in Dune.
+  },
+  {
+    question: "In a world where robots serve humans, one robot may have committed murder. What is the detective's name who solves the case?",
+    answer: "spooner" // The answer is Del Spooner, but we use a simplified version for the riddle.
+  }
+];
 
-  function displayMessage(message, addPrompt = true) {
-    const terminalOutput = document.getElementById('output');
-    if (addPrompt) {
-      // Updated the prompt to the new username and hostname
-      message = `<span style="color: white;">~ guest</span><span style="color: magenta;">@itsrohit.xo</span><span style="color: white;">$</span> ${message}`;
-    }
-    // Each message is wrapped in a div that can be styled for centering
-    terminalOutput.innerHTML += `\n<div class="terminal-line">${message}</div>`;
-    terminalOutput.scrollTop = terminalOutput.scrollHeight; // Scroll to bottom
-  }
-  
-  
-  
-  // ... rest of your JavaScript code ...
-  
-  
-  
-  function processCommand(input) {
-    const trimmedInput = input.trim().toLowerCase(); // Convert input to lowercase for case-insensitive comparison
-    if (trimmedInput === 'clc') {
-      document.getElementById('output').innerHTML = '';
-    } else if (trimmedInput === 'start' && currentRiddleIndex === 0) {
-      displayMessage(riddles[currentRiddleIndex].question, false);
-    } else if (trimmedInput === riddles[currentRiddleIndex].answer.toLowerCase()) { // Convert answer to lowercase for case-insensitive comparison
-      displayMessage('Correct!', true);
-      currentRiddleIndex++;
-      if (currentRiddleIndex < riddles.length) {
-        displayMessage(riddles[currentRiddleIndex].question, false);
-      } else {
-        displayMessage('You have solved all riddles. Congratulations!', true);
-        // Reset the game or end it here
-      }
-    } else {
-      displayMessage('Incorrect. Try again.', true);
-    }
-  }
-  
-  const terminalInput = document.getElementById('input');
-  terminalInput.addEventListener('keydown', function(event) {
+let currentRiddleIndex = 0;
+
+document.addEventListener('DOMContentLoaded', () => {
+  const inputElement = document.getElementById('input');
+  const outputElement = document.getElementById('output');
+  inputElement.addEventListener('keydown', function(event) {
     if (event.key === 'Enter') {
-      const value = this.value;
-      displayMessage(value, true); // Show the user input with a colored prompt
-      processCommand(value);
-      this.value = ''; // Clear input
+      const command = this.value.trim();
+      this.value = ''; // Clear the input field
+      if (command.toLowerCase() === 'start') {
+        displayRiddle(outputElement);
+      } else {
+        checkAnswer(command.toLowerCase(), outputElement);
+      }
     }
   });
+});
+
+function displayRiddle(outputElement) {
+  outputElement.textContent = ''; // Clear previous output
+  setTimeout(() => {
+    outputElement.textContent = riddles[currentRiddleIndex].question;
+  }, 1000); // Display the current riddle after 1 second
+}
+
+function checkAnswer(answer, outputElement) {
+  if (answer === riddles[currentRiddleIndex].answer.toLowerCase()) {
+    currentRiddleIndex++;
+    if (currentRiddleIndex < riddles.length) {
+      outputElement.textContent = 'Correct! Here is the next riddle:';
+      setTimeout(() => {
+        outputElement.textContent = riddles[currentRiddleIndex].question;
+      }, 1000);
+    } else {
+      outputElement.textContent = 'Correct! You have solved all the riddles. Congratulations!';
+      currentRiddleIndex = 0; // Reset the riddle index if you want to restart the game
+    }
+  } else {
+    outputElement.textContent = 'Incorrect. Try again.';
+  }
+}

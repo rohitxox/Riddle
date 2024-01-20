@@ -1,32 +1,42 @@
-body {
-    background-color: #1e1e1e; /* Dark background color */
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    display: flex;
-    flex-direction: column; /* Stack children vertically */
-    align-items: center; /* Center children horizontally */
-    justify-content: flex-start; /* Align children to the top */
-    color: white;
-    font-family: 'Courier New', monospace;
-    line-height: 1.5; /* Adjust line height for line spacing */
-  }
-  
-  
-  #terminal {
-    /* ... other styles ... */
-    text-align: left; /* Align text to the left for indentation */
-    white-space: pre-line; /* Collapses sequences of whitespace into a single whitespace */
-    padding: 20px; /* Adjust padding as needed for indentation */
-  }
-  
-  #output {
-    margin-left: 2em; /* Indent the output text */
-    /* ... other styles ... */
-  }
-  
-  /* Style for the prompt to have a consistent indentation with the output */
-  .prompt {
-    margin-left: 2em;
-  }
-  
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+  color: #fff;
+  font-family: 'Courier New', monospace;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+#terminal {
+  width: 100%;
+  max-width: 800px; /* Adjust as needed */
+  padding: 20px;
+}
+
+.prompt-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.prompt {
+  margin-right: 5px;
+}
+
+#input {
+  background: transparent;
+  color: #fff;
+  border: none;
+  outline: none;
+  width: 60%; /* Adjust as needed */
+}
+
+#output {
+  width: 100%;
+  text-align: left;
+  margin-bottom: 10px;
+}
