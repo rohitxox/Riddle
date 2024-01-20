@@ -60,3 +60,18 @@ body, html {
   user-select: none; /* Prevent user from selecting the prompt */
   margin-right: 0.5em; /* Space between the dollar sign and the input field */
 }
+
+.loading-bar-container {
+  width: 100%;
+  background-color: #ccc;
+  margin: 10px 0;
+}
+
+.loading-bar {
+  width: 0;
+  height: 30px;
+  background-color: #4CAF50;
+  text-align: center;
+  line-height: 30px;
+  color: white;
+}
