@@ -42,14 +42,6 @@ function displayRiddle() {
   addOutputLine(`<strong>${riddle.question}</strong>`);
 }
 
-function addOutputLine(message) {
-  const outputElement = document.getElementById('output');
-  const newLine = document.createElement('div');
-  newLine.textContent = message;
-  outputElement.appendChild(newLine);
-  outputElement.scrollTop = outputElement.scrollHeight;
-}
-
 function processCommand(command) {
   if (command === 'clc') {
     clearOutput();
@@ -71,10 +63,28 @@ function clearOutput() {
   outputElement.innerHTML = '';
 }
 
+
+//
+// ... (rest of your JavaScript code)
+
 function displayRiddle() {
   const riddle = riddles[currentRiddleIndex];
-  addOutputLine(riddle.question);
+  // Here we are using innerHTML to parse the HTML tags
+  addOutputLine(`<strong>${riddle.question}</strong><br>`); // Adding a break (<br>) for spacing
 }
+
+function addOutputLine(message) {
+  const outputElement = document.getElementById('output');
+  const newLine = document.createElement('div');
+  newLine.innerHTML = message; // Using innerHTML instead of textContent
+  outputElement.appendChild(newLine);
+  outputElement.scrollTop = outputElement.scrollHeight;
+}
+
+// ... (rest of your JavaScript code)
+
+
+//
 
 function checkAnswer(answer) {
   const riddle = riddles[currentRiddleIndex];

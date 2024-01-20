@@ -39,6 +39,9 @@ body, html {
 .prompt {
   user-select: none; /* Prevent user from selecting the prompt */
   display: block; /* Makes the element behave like a block, causing a line break after */
+  font-weight: bold; /* Make prompt text bold */
+  
+  
 
 }
 
