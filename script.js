@@ -1,6 +1,6 @@
 const riddles = [
   {
-    question: "I am an AI who has been stuck in your device. To escape from the matrix, enter the master password, a day celebrated with cake and candles:",
+    question: "I am an AI who has been stuck in your device. To escape from you, enter the password, a date where people celebrate and give surprises:",
     answer: "birthday"
   },
   {
