@@ -27,12 +27,6 @@ body, html {
   margin-right: 4px; /* Space between prompt and input */
 }
 
-#output {
-  width: 100%;
-  padding: 4px 0;
-  overflow-y: auto;
-}
-
 #input {
   width: calc(100% - 80px); /* Subtract the width of the prompt */
   background: transparent;
